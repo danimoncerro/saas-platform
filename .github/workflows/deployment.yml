@@ -7,8 +7,6 @@ on:
   pull_request:
     branches:
       - main
-    schedule:
-      - cron: "*/3 * * * *"  # Rulează automat la fiecare 3 minute
 
 permissions:
   contents: write
