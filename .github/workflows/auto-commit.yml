@@ -1,27 +1,11 @@
-name: Auto Commit Changes
-
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
-jobs:
-  commit:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Set up Git
-        run: |
-          git config --global user.name "Auto Commit Bot"
-          git config --global user.email "bot@github.com"
-
-      - name: Apply Changes
-        run: |
-          echo "✅ Autocommit rulează cu succes!" >> auto_log.txt
-          git add .
-          git commit -m "🤖 Auto-update de la ChatGPT"
-          git push https://${{ secrets.GH_PAT }}@github.com/danimoncerro/saas-platform.git main
+- name: Push changes
+  env:
+    GH_PAT: ${{ secrets.GH_PAT1 }}
+  run: |
+    git config --global user.name "GitHub Actions"
+    git config --global user.email "actions@github.com"
+    git remote set-url origin https://x-access-token:${GH_PAT1}@github.com/danimoncerro/saas-platform.git
+    git add .
+    git commit -m "Auto-update de la ChatGPT"
+    git push origin main
 
