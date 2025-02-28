@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 * * * *'  # Rulează automat o dată pe oră
+    - cron: "0 * * * *"  # Rulează automat la fiecare oră
 
 jobs:
   auto-commit:
@@ -22,8 +22,9 @@ jobs:
           git config --global user.email "actions@github.com"
           git remote set-url origin https://x-access-token:${GH_PAT3}@github.com/danimoncerro/saas-platform.git
           git add .
-          git commit -m "Auto-update de la ChatGPT"
+          git commit -m "Auto-update de la ChatGPT" || echo "No changes to commit"
           git push origin main
+
 
 
 
