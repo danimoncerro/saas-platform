@@ -24,7 +24,8 @@ jobs:
         env:
           GH_PAT3: ${{ secrets.GH_PAT3 }}
         run: |
-          git remote set-url origin https://x-access-token:${GH_PAT3}@github.com/danimoncerro/saas-platform.git
+          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT3 }}@github.com/danimoncerro/saas-platform.git
+
           git add .
           - name: Ensure changes exist
           run: echo "Auto-update from GitHub Actions" >> auto_log.txt
