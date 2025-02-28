@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "*/2 * * * *"  # Rulează automat la fiecare 3 minute
+    - cron: "*/3 * * * *"  # Rulează automat la fiecare 3 minute
 
 jobs:
   auto-commit:
