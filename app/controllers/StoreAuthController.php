@@ -12,7 +12,7 @@ class StoreAuthController {
     public function showLoginForm() {
         require_once '../app/views/store/auth/login.php'; // Afișează pagina de login pentru clienți
     }
-
+   
     public function login() {
         error_log("🔍 Request primit în login: " . print_r($_SERVER, true)); 
         error_log("📩 Date primite: " . print_r($_POST, true));
@@ -21,7 +21,7 @@ class StoreAuthController {
             if (isset($_POST['debug_test'])) {
                 die("✅ POST funcționează, formularul trimite date!");
             }
-    
+            var_dump($_POST['email']);
             $email = trim($_POST['email']);
             $password = trim($_POST['password']);
     

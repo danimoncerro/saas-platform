@@ -40,23 +40,39 @@ class StoreUserModel {
 
     public function loginUser($email, $password) {
         $stmt = $this->db->prepare("SELECT id, name, password FROM store_users WHERE email = ?");
+        
+        if (!$stmt) {
+            die("❌ Eroare SQL: " . $this->db->error);
+        }
+    
         $stmt->bind_param("s", $email);
+        
+        // Adaugă acest debug înainte de execute()
+        var_dump("Se execută interogarea cu email: " . $email);
+        
         $stmt->execute();
         $result = $stmt->get_result();
-
+    
         if ($result->num_rows === 1) {
             $user = $result->fetch_assoc();
             
-            // Verificăm parola
+            // Debug pentru parola
             if (password_verify($password, $user['password'])) {
+                var_dump("✅ Parola este corectă!");
+                exit;
                 return $user;
             } else {
+                var_dump("❌ Parola NU este corectă!");
+                exit;
                 return false;
             }
         }
-
+    
+        var_dump("❌ Nu există utilizator cu acest email!");
+        exit;
         return false;
     }
+    
 }
 
 ?>
