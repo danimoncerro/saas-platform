@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 * * * *"  # Rulează automat la fiecare oră
+    - cron: '0 * * * *'  # Rulează automat o dată pe oră
 
 jobs:
   auto-commit:
@@ -16,13 +16,14 @@ jobs:
 
       - name: Push changes
         env:
-          GH_PAT: ${{ secrets.GH_PAT1 }}
+          GH_PAT3: ${{ secrets.GH_PAT3 }}
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/danimoncerro/saas-platform.git
+          git remote set-url origin https://x-access-token:${GH_PAT3}@github.com/danimoncerro/saas-platform.git
           git add .
-          git commit -m "Auto-update de la ChatGPT" || echo "No changes to commit"
+          git commit -m "Auto-update de la ChatGPT"
           git push origin main
+
 
 
