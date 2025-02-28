@@ -26,6 +26,8 @@ jobs:
         run: |
           git remote set-url origin https://x-access-token:${GH_PAT3}@github.com/danimoncerro/saas-platform.git
           git add .
+          - name: Ensure changes exist
+          run: echo "Auto-update from GitHub Actions" >> auto_log.txt
           git commit -m "Auto-commit din workflow deployment"
           git push origin main
 
