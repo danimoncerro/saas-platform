@@ -75,3 +75,5 @@ test2 din GitHub
 Test modificare manuală pentru GitHub Actions
 
 Sunt curios daca merge.
+
+Sunt curios daca merge 2.
