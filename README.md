@@ -1,1 +1,1 @@
-Acesta este un nou continut pentru adougat la README.md
+Acesta este un nou al doilea conținut pentru README.md
