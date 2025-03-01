@@ -73,3 +73,5 @@ test1 dn VCS
 test2 din GitHub
 
 Test modificare manuală pentru GitHub Actions
+
+Sunt curios daca merge.
