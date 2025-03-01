@@ -1,0 +1,23 @@
+name: Update README
+on:
+  workflow_dispatch  # Permite rularea manuală a workflow-ului
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update README.md
+        run: echo "Acesta este un nou al doilea conținut pentru README.md" > README.md
+
+      - name: Commit and push changes
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB1_PAT }}
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add README.md
+          git commit -m "Actualizare automată a README.md"
+          git push https://x-access-token:${GITHUB1_PAT}@github.com/danimoncerro/saas-platform.git
